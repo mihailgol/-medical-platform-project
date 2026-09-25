@@ -49,7 +49,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </h1>
 
           <p className="text-[#EAE8E4]/80 text-base sm:text-lg leading-relaxed max-w-2xl font-sans">
-            Структурированные лекции, краткие конспекты, интерактивное тестирование, случайные экзаменационные билеты и <strong className="text-[#F25C05] font-semibold underline underline-offset-4 decoration-[#F25C05]">автоматическая AI-проверка письменных ответов</strong> с детальным разбором ошибок.
+            Структурированные лекции, краткие конспекты, интерактивное тестирование, случайные экзаменационные билеты и <strong className="text-[#F25C05] font-semibold underline underline-offset-4 decoration-[#F25C05]">автоматическая проверка письменных ответов</strong> по эталонам кафедры.
           </p>
 
           {/* Quick Stats Grid */}
@@ -63,8 +63,8 @@ export const HomeView: React.FC<HomeViewProps> = ({
               <div className="text-[11px] uppercase tracking-wider text-[#EAE8E4]/70 mt-1">Соответствие ФГОС</div>
             </div>
             <div className="border-r border-[#EAE8E4]/20 pr-2">
-              <div className="text-3xl font-serif font-bold text-[#F25C05]">AI</div>
-              <div className="text-[11px] uppercase tracking-wider text-[#EAE8E4]/70 mt-1">Проверка ответов</div>
+              <div className="text-3xl font-serif font-bold text-[#F25C05]">Эталон</div>
+              <div className="text-[11px] uppercase tracking-wider text-[#EAE8E4]/70 mt-1">Критерии кафедры</div>
             </div>
             <div>
               <div className="text-3xl font-serif font-bold text-[#EAE8E4]">НПД</div>
@@ -79,7 +79,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
               className="px-6 py-3.5 bg-[#F25C05] hover:bg-[#F25C05]/90 text-[#1A1A1A] font-bold transition-colors flex items-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
-              <span>Генератор билетов & AI</span>
+              <span>Генератор билетов</span>
             </button>
 
             <button
@@ -275,19 +275,19 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* AI Ticket Evaluator Interactive Showcase Banner */}
+      {/* Ticket Showcase Banner */}
       <section className="bg-[#1A1A1A] border-2 border-[#1A1A1A] p-6 sm:p-8 text-[#EAE8E4] space-y-6">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="space-y-3 max-w-xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F25C05] text-[#1A1A1A] font-mono text-xs font-bold uppercase tracking-widest">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Фирменная AI-функция</span>
+              <span>Экзаменационный тренажёр</span>
             </div>
             <h3 className="text-2xl font-serif font-bold text-[#EAE8E4]">
-              Напиши ответ на билет — получи оценку профессорского уровня
+              Напиши ответ на билет — сверься с эталоном кафедры
             </h3>
             <p className="text-xs sm:text-sm text-[#EAE8E4]/80 leading-relaxed font-sans">
-              Модуль на базе Gemini сравнивает ответ студента с эталонными тезисами и критериями кафедры. Показывает оценку (2-5), сильные стороны, фактические ошибки и пропущенные факты.
+              Система сопоставляет ответ студента с эталонными тезисами и критериями кафедры. Показывает оценку (2-5), соответствие критериям и рекомендации.
             </p>
           </div>
 
@@ -295,7 +295,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
             onClick={() => setCurrentTab('tickets')}
             className="px-6 py-3.5 bg-[#F25C05] text-[#1A1A1A] hover:bg-[#EAE8E4] font-mono text-xs font-bold uppercase tracking-wider transition-colors flex items-center gap-2 shrink-0"
           >
-            <span>Запустить AI-проверку</span>
+            <span>Проверить ответ</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

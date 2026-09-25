@@ -30,7 +30,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
   onAddTicket,
   onResetData
 }) => {
-  const [activeTab, setActiveTab] = useState<'ai_parser' | 'materials' | 'tests' | 'tickets' | 'analytics'>('ai_parser');
+  const [activeTab, setActiveTab] = useState<'materials' | 'tests' | 'tickets' | 'ai_parser' | 'analytics'>('materials');
 
   // AI Document Extraction State
   const [extractedText, setExtractedText] = useState<string>('');
@@ -187,16 +187,6 @@ export const AdminView: React.FC<AdminViewProps> = ({
         {/* Admin Navigation Subtabs */}
         <div className="pt-3 border-t border-[#EAE8E4]/20 flex items-center gap-2 overflow-x-auto no-scrollbar font-mono text-xs uppercase font-bold">
           <button
-            onClick={() => setActiveTab('ai_parser')}
-            className={`px-4 py-2 transition-all flex items-center gap-1.5 whitespace-nowrap ${
-              activeTab === 'ai_parser' ? 'bg-[#F25C05] text-[#1A1A1A]' : 'bg-[#EAE8E4]/10 text-[#EAE8E4] hover:bg-[#EAE8E4]/20'
-            }`}
-          >
-            <Sparkles className="w-4 h-4" />
-            <span>AI Автоизвлечение из файлов</span>
-          </button>
-
-          <button
             onClick={() => setActiveTab('materials')}
             className={`px-4 py-2 transition-all flex items-center gap-1.5 whitespace-nowrap ${
               activeTab === 'materials' ? 'bg-[#F25C05] text-[#1A1A1A]' : 'bg-[#EAE8E4]/10 text-[#EAE8E4] hover:bg-[#EAE8E4]/20'
@@ -214,6 +204,16 @@ export const AdminView: React.FC<AdminViewProps> = ({
           >
             <Layers className="w-4 h-4" />
             <span>Тесты ({tests.length})</span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab('ai_parser')}
+            className={`px-4 py-2 transition-all flex items-center gap-1.5 whitespace-nowrap ${
+              activeTab === 'ai_parser' ? 'bg-[#F25C05] text-[#1A1A1A]' : 'bg-[#EAE8E4]/10 text-[#EAE8E4] hover:bg-[#EAE8E4]/20'
+            }`}
+          >
+            <Sparkles className="w-4 h-4" />
+            <span>Генератор вопросов и билетов</span>
           </button>
 
           <button
@@ -251,7 +251,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                 Загрузка лекции & Автоматическая генерация тестов и билетов
               </h2>
               <p className="text-xs text-[#1A1A1A]/80 font-sans">
-                Вставьте текст конспекта, методички или PDF/DOCX/PPTX — модуль на базе Gemini проанализирует научные термины и сформирует черновик вопросов и ситуационных билетов.
+                Вставьте текст конспекта или методички — система проанализирует тему и сформирует черновик вопросов и ситуационных билетов.
               </p>
             </div>
 
@@ -541,9 +541,9 @@ export const AdminView: React.FC<AdminViewProps> = ({
             </div>
 
             <div className="bg-[#EAE8E4] border-2 border-[#1A1A1A] p-6 space-y-2">
-              <div className="text-xs uppercase font-bold text-[#1A1A1A]/70">Мониторинг AI расходов</div>
-              <div className="text-3xl font-serif font-bold text-[#1A1A1A]">0.00 $</div>
-              <div className="text-[11px] text-[#1A1A1A]/60 font-sans">Используется модель Gemini Flash</div>
+              <div className="text-xs uppercase font-bold text-[#1A1A1A]/70">Режим работы</div>
+              <div className="text-3xl font-serif font-bold text-emerald-600">Автономный</div>
+              <div className="text-[11px] text-[#1A1A1A]/60 font-sans">Без сторонних облачных API</div>
             </div>
           </div>
 

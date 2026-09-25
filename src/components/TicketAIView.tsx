@@ -100,14 +100,14 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
       {/* Title & Introduction */}
       <div className="border-b-2 border-[#1A1A1A] pb-3 space-y-1">
         <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#F25C05] text-[#1A1A1A] font-mono text-[10px] uppercase font-bold">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>Модуль AI-проверки ответов по критериям кафедр</span>
+          <BookOpen className="w-3.5 h-3.5" />
+          <span>Экзаменационный тренажёр по критериям кафедр</span>
         </div>
         <h1 className="text-2xl sm:text-3xl font-serif font-bold text-[#1A1A1A] mt-2">
-          Генератор билетов & AI-экзаменатор
+          Генератор билетов & Ситуационные задачи
         </h1>
         <p className="text-xs sm:text-sm text-[#1A1A1A]/80">
-          Сгенерируйте случайный экзаменационный билет, введите ваш ответ и нейросеть моментально оценит его с разбором ошибок.
+          Сгенерируйте экзаменационный билет, напишите ваш ответ и система проверит его по эталону и критериям кафедры.
         </p>
       </div>
 
@@ -183,7 +183,7 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
               />
               <div className="flex items-center justify-between text-[11px] font-mono text-[#EAE8E4]/70">
                 <span>Длина ответа: {studentAnswer.length} символов</span>
-                <span>Проверка производится нейросетью Gemini</span>
+                <span>Проверка по критериям кафедры</span>
               </div>
             </div>
 
@@ -194,7 +194,7 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
               </div>
             )}
 
-            {/* Action Submit to AI Button */}
+            {/* Action Submit Button */}
             <button
               onClick={handleEvaluateAnswer}
               disabled={isEvaluating}
@@ -203,18 +203,18 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
               {isEvaluating ? (
                 <>
                   <div className="w-4 h-4 border-2 border-[#1A1A1A] border-t-transparent rounded-full animate-spin"></div>
-                  <span>Профессорский AI анализирует ваш ответ...</span>
+                  <span>Сверка ответа с критериями кафедры...</span>
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-4 h-4" />
-                  <span>Отправить ответ на AI-проверку</span>
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Проверить ответ по эталону кафедры</span>
                 </>
               )}
             </button>
           </div>
 
-          {/* AI Evaluation Results Breakdown Card */}
+          {/* Evaluation Results Breakdown Card */}
           {evaluationResult && (
             <div className="bg-[#EAE8E4] border-2 border-[#1A1A1A] p-6 sm:p-8 text-[#1A1A1A] space-y-6 shadow-xl">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b-2 border-[#1A1A1A] pb-4">
@@ -227,7 +227,7 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
                       Оценка: {evaluationResult.gradeText} ({evaluationResult.score}%)
                     </h3>
                     <p className="text-xs text-[#1A1A1A]/80 font-sans">
-                      Результаты проверки по канонам кафедры
+                      Результаты автоматической проверки по критериям кафедры
                     </p>
                   </div>
                 </div>
@@ -240,10 +240,20 @@ export const TicketAIView: React.FC<TicketAIViewProps> = ({
               {/* Summary Commentary */}
               <div className="bg-[#1A1A1A] text-[#EAE8E4] p-4 border border-[#1A1A1A] space-y-1 font-sans">
                 <div className="font-mono font-bold text-xs text-[#F25C05] uppercase flex items-center gap-1.5">
-                  <Brain className="w-4 h-4" /> Заключение AI-экзаменатора:
+                  <BookOpen className="w-4 h-4" /> Заключение экзаменационной комиссии:
                 </div>
                 <p className="text-xs text-[#EAE8E4]/90 leading-relaxed">
                   {evaluationResult.summary}
+                </p>
+              </div>
+
+              {/* Official Model Answer Box */}
+              <div className="bg-[#1A1A1A] text-[#EAE8E4] p-4 border border-[#1A1A1A] space-y-2 text-xs font-sans">
+                <div className="font-mono font-bold text-xs text-[#F25C05] uppercase flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4" /> Эталонный ответ кафедры для самопроверки:
+                </div>
+                <p className="text-[#EAE8E4]/90 whitespace-pre-line leading-relaxed bg-[#EAE8E4]/10 p-3 border border-[#EAE8E4]/20">
+                  {currentTicket.modelAnswer}
                 </p>
               </div>
 

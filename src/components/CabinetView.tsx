@@ -52,7 +52,7 @@ export const CabinetView: React.FC<CabinetViewProps> = ({
 
           <div className="bg-[#EAE8E4] text-[#1A1A1A] p-3 border border-[#1A1A1A] text-xs font-mono space-y-1 sm:text-right shrink-0">
             <div>Приобретено материалов: <strong className="text-[#F25C05]">{purchasedMaterials.length}</strong></div>
-            <div>Пройдено AI-билетов: <strong className="text-[#F25C05]">{ticketAttempts.length}</strong></div>
+            <div>Пройдено билетов: <strong className="text-[#F25C05]">{ticketAttempts.length}</strong></div>
           </div>
         </div>
 
@@ -75,7 +75,7 @@ export const CabinetView: React.FC<CabinetViewProps> = ({
             }`}
           >
             <Sparkles className="w-4 h-4" />
-            <span>История AI-проверок ({ticketAttempts.length})</span>
+            <span>История билетов ({ticketAttempts.length})</span>
           </button>
 
           <button
@@ -141,17 +141,17 @@ export const CabinetView: React.FC<CabinetViewProps> = ({
           </div>
         )}
 
-        {/* Subtab 2: AI Ticket Attempts History */}
+        {/* Subtab 2: Ticket Attempts History */}
         {activeSubTab === 'ai_tickets' && (
           <div className="space-y-4">
             {ticketAttempts.length === 0 ? (
               <div className="bg-[#EAE8E4] border-2 border-[#1A1A1A] p-12 text-center text-[#1A1A1A]/80 space-y-3 font-sans">
-                <p className="text-sm">Вы еще не отправляли ответы по билетам на AI-проверку.</p>
+                <p className="text-sm">Вы еще не проходили проверку ответов по экзаменационным билетам.</p>
                 <button
                   onClick={() => setCurrentTab('tickets')}
                   className="px-4 py-2 bg-[#F25C05] text-[#1A1A1A] font-mono text-xs uppercase font-bold inline-block"
                 >
-                  Запустить AI-экзаменатор
+                  Перейти к билетам
                 </button>
               </div>
             ) : (
@@ -173,7 +173,7 @@ export const CabinetView: React.FC<CabinetViewProps> = ({
                     </div>
 
                     <div className="bg-[#1A1A1A] text-[#EAE8E4] p-3 border border-[#1A1A1A] text-xs font-sans">
-                      <strong className="text-[#F25C05] font-mono">AI Резюме:</strong> {att.evaluation.summary}
+                      <strong className="text-[#F25C05] font-mono">Заключение:</strong> {att.evaluation.summary}
                     </div>
                   </div>
                 ))}

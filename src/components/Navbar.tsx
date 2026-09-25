@@ -123,7 +123,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }`}
             >
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Билеты & AI</span>
+              <span>Билеты и задачи</span>
             </button>
           </nav>
 
@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           }`}
         >
           <Sparkles className="w-3 h-3" />
-          Билеты AI
+          Билеты
         </button>
         <button
           onClick={onOpenAuthModal}
